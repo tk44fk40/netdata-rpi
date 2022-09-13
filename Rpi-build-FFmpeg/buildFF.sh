@@ -50,6 +50,7 @@ cd ~/ffmpeg_sources \
  ./configure \
   --prefix="$HOME/ffmpeg_build" \
   --pkg-config-flags="--static" \
+  --disable-shared \
   --extra-cflags="-I$HOME/ffmpeg_build/include" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --extra-libs="-ldl" \
