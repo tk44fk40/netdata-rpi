@@ -1,5 +1,4 @@
-#FROM debian
-FROM debian:buster-slim
+FROM debian
 
 LABEL maintainer "Signal Flag Z"
 
