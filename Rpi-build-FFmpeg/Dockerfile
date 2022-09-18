@@ -39,7 +39,7 @@ RUN echo "now building..." \
   && apt -y autoremove \
   && echo "Done." \
   && apt clean
-COPY ./buildFF.sh  /home
+COPY ./buildFF.sh /root
 
 # ALSA Version
 ENV V_ALSA="1.2.7.2"
