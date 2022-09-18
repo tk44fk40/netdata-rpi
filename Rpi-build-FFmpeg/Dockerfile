@@ -44,4 +44,4 @@ COPY ./buildFF.sh /root
 # ALSA Version
 ENV V_ALSA="1.2.7.2"
 
-CMD ["/bin/bash", "-c",  "/home/buildFF.sh"]
+#CMD ["/bin/bash", "-c",  "/home/buildFF.sh"]
