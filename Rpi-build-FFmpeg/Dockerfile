@@ -3,12 +3,11 @@ FROM debian:bullseye-slim
 LABEL maintainer "Signal Flag Z"
 LABEL edited_by "tk44fk40"
 
-RUN echo "now building..." \
- && echo "updating..." \
+RUN echo "Apt updating..." \
  && apt-get update \
  && apt-get upgrade -y \
- && echo "install libs and tools..." \
- && apt-get -y install\
+ && echo "Install libs and tools..." \
+ && apt-get --no-install-recommends -y install \
   autoconf \
   automake \
   build-essential \
@@ -17,6 +16,7 @@ RUN echo "now building..." \
   g++ \
   gcc \
   git \
+  less \
   libaribb24-dev \
   libasound2 \
   libasound2-dev \
@@ -52,15 +52,16 @@ RUN echo "now building..." \
   pkg-config \
   sudo \
   texinfo \
+  vim \
   wget \
   yasm \
   zlib1g-dev \
  && apt-get -y autoremove \
- && echo "Done." \
- && apt-get clean
+ && apt-get clean \
+ && echo "Done."
 COPY ./buildFF.sh /root
 
 # ALSA Version
-ENV V_ALSA="1.2.7.2"
+#ENV V_ALSA="1.2.7.2"
 
 #CMD ["/bin/bash", "-c", "/root/buildFF.sh"]
