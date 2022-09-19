@@ -19,7 +19,6 @@ docker run \
  -v '/var/tmp/local/bin:/root/bin' \
  -v '/var/tmp/local/ffmpeg_build:/root/ffmpeg_build' \
  -v '/var/tmp/local/ffmpeg_patch:/root/ffmpeg_patch' \
- --rm \
  -it \
  --name ${dname} \
  ${dname} \
