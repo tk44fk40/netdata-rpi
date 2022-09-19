@@ -1,6 +1,6 @@
 # apt でソースパッケージをインストール・展開してビルドする場合
 
-sudo sed -i.bak 's/#deb-src /deb-src /g' /etc/apt/sources.list
+sudo sed -i.bak 's/# *deb-src /deb-src /' /etc/apt/sources.list
 sudo apt update
 
 sudo apt install -y dpkg-dev # ダウンロードしたパッケージを展開する場合必要
@@ -8,74 +8,3 @@ sudo apt install -y dpkg-dev # ダウンロードしたパッケージを展開�
 sudo apt build-dep ffmpeg # 依存ライブラリをインストール
 apt source ffmpeg # ソースパッケージのインストールと展開
 
-cd ffmpeg-*
-./configure \
---prefix=/usr \
---extra-version=1 \
---toolchain=hardened \
---libdir=/usr/lib/arm-linux-gnueabihf \
---incdir=/usr/include/arm-linux-gnueabihf \
---arch=arm \
---enable-gpl \
---disable-stripping \
---enable-avresample \
---disable-filter=resample \
---enable-avisynth \
---enable-gnutls \
---enable-ladspa \
---enable-libaom \
---enable-libass \
---enable-libbluray \
---enable-libbs2b \
---enable-libcaca \
---enable-libcdio \
---enable-libcodec2 \
---enable-libflite \
---enable-libfontconfig \
---enable-libfreetype \
---enable-libfribidi \
---enable-libgme \
---enable-libgsm \
---enable-libjack \
---enable-libmp3lame \
---enable-libmysofa \
---enable-libopenjpeg \
---enable-libopenmpt \
---enable-libopus \
---enable-libpulse \
---enable-librsvg \
---enable-librubberband \
---enable-libshine \
---enable-libsnappy \
---enable-libsoxr \
---enable-libspeex \
---enable-libssh \
---enable-libtheora \
---enable-libtwolame \
---enable-libvidstab \
---enable-libvorbis \
---enable-libvpx \
---enable-libwavpack \
---enable-libwebp \
---enable-libx265 \
---enable-libxml2 \
---enable-libxvid \
---enable-libzmq \
---enable-libzvbi \
---enable-lv2 \
---enable-omx \
---enable-omx-rpi \
---enable-openal \
---enable-opengl \
---enable-sdl2 \
---enable-libdc1394 \
---enable-libdrm \
---enable-libiec61883 \
---enable-chromaprint \
---enable-frei0r \
---enable-libx264 \
---enable-shared \
---enable-mmal
-
-make -j5
-sudo make install
