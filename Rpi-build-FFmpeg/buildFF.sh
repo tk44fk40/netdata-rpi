@@ -19,7 +19,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" \
     --bindir="$HOME/bin" \
     --enable-static \
     --enable-pic && \
-PATH="$HOME/bin:$PATH" make -j4 && \
+PATH="$HOME/bin:$PATH" make -j$(nproc) && \
 make install
 
 cd ~/ffmpeg_sources
@@ -51,7 +51,24 @@ cd ~/ffmpeg_sources \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --extra-libs="-ldl" \
   --bindir="$HOME/bin" \
-&& PATH="$HOME/bin:$PATH" make -j4 \
+  --enable-gpl \
+  --enable-libass \
+  --enable-libfreetype \
+  --enable-libmp3lame \
+  --enable-libopus \
+  --enable-libtheora \
+  --enable-libvorbis \
+  --enable-libvpx \
+  --enable-libx264 \
+  --enable-libx265 \
+  --enable-omx \
+  --enable-omx-rpi \
+  --enable-version3 \
+  --enable-libaribb24 \
+  --enable-nonfree \
+  --disable-debug \
+  --disable-doc \
+&& PATH="$HOME/bin:$PATH" make -j$(nproc) \
 && make install \
 && hash -r
 
