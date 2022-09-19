@@ -44,6 +44,7 @@ cd ~/ffmpeg_sources \
 && wget -O ffmpeg-snapshot.tar.bz2 https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 \
 && tar xjvf ffmpeg-snapshot.tar.bz2 \
 && cd ffmpeg \
+&& git apply ~/ffmpeg_patch/patch.diff \
 && PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" LD_LIBRARY_PATH="/opt/vc/lib" \
  ./configure \
   --prefix="$HOME/ffmpeg_build" \
@@ -63,6 +64,7 @@ cd ~/ffmpeg_sources \
   --enable-libx265 \
   --enable-omx \
   --enable-omx-rpi \
+  --enable-mmal \
   --enable-version3 \
   --enable-libaribb24 \
   --enable-nonfree \
