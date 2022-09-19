@@ -19,6 +19,7 @@ RUN echo "now building..." \
   git \
   libaribb24-dev \
   libasound2 \
+  libasound2-dev \
   libass-dev \
   libass9 \
   libfreetype6-dev \
