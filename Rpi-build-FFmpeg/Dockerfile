@@ -11,6 +11,7 @@ RUN echo "Apt updating..." \
   autoconf \
   automake \
   build-essential \
+  ca-certificates \
   cmake \
   curl \
   g++ \
