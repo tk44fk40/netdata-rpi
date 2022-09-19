@@ -52,6 +52,8 @@ cd ~/ffmpeg_sources \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --extra-libs="-ldl" \
   --bindir="$HOME/bin" \
+  --disable-shared \
+  --pkg-config-flags=--static \
   --enable-gpl \
   --enable-libass \
   --enable-libfreetype \
