@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 LABEL maintainer "Signal Flag Z"
 LABEL edited_by "tk44fk40"
