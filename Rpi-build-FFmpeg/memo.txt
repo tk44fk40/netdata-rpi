@@ -1,3 +1,7 @@
+# 依存ライブラリ
+libaribb24-0
+
+
 # apt でソースパッケージをインストール・展開してビルドする場合
 
 sudo sed -i.bak 's/# *deb-src /deb-src /' /etc/apt/sources.list
