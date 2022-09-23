@@ -22,22 +22,22 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" \
 PATH="$HOME/bin:$PATH" make -j$(nproc) && \
 make install
 
-cd ~/ffmpeg_sources
-echo "building mmal."
-git clone https://github.com/raspberrypi/userland.git
-cd userland
-./buildme
+# cd ~/ffmpeg_sources
+# echo "building mmal."
+# git clone https://github.com/raspberrypi/userland.git
+# cd userland
+# ./buildme
 
-cd ~/ffmpeg_sources
-echo "building alsa."
-git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg --depth 1
-wget ftp://ftp.alsa-project.org/pub/lib/alsa-lib-$V_ALSA.tar.bz2
-tar xjvf alsa-lib-$V_ALSA.tar.bz2
-cd /home/alsa-lib-$V_ALSA
-PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" \
-  ./configure --prefix="$HOME/ffmpeg_build" \
-&& PATH="$HOME/bin:$PATH" make -j4 \
-&& make install
+# cd ~/ffmpeg_sources
+# echo "building alsa."
+# git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg --depth 1
+# wget ftp://ftp.alsa-project.org/pub/lib/alsa-lib-$V_ALSA.tar.bz2
+# tar xjvf alsa-lib-$V_ALSA.tar.bz2
+# cd /home/alsa-lib-$V_ALSA
+# PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" \
+#   ./configure --prefix="$HOME/ffmpeg_build" \
+# && PATH="$HOME/bin:$PATH" make -j4 \
+# && make install
 
 export LD_LIBRARY_PATH="/opt/vc/lib"
 cd ~/ffmpeg_sources \
@@ -51,6 +51,8 @@ cd ~/ffmpeg_sources \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --extra-libs="-ldl" \
   --bindir="$HOME/bin" \
+  --disable-shared \
+  --pkg-config-flags=--static \
   --enable-gpl \
   --enable-libass \
   --enable-libfreetype \
@@ -61,8 +63,6 @@ cd ~/ffmpeg_sources \
   --enable-libvpx \
   --enable-libx264 \
   --enable-libx265 \
-  --enable-omx \
-  --enable-omx-rpi \
   --enable-version3 \
   --enable-libaribb24 \
   --enable-nonfree \
@@ -71,5 +71,8 @@ cd ~/ffmpeg_sources \
 && PATH="$HOME/bin:$PATH" make -j$(nproc) \
 && make install \
 && hash -r
+
+  # --enable-omx \
+  # --enable-omx-rpi \
 
 echo "done."

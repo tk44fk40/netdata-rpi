@@ -2,7 +2,8 @@
 # Build image and run buildFF script.
 # Signal Flag Z
 dname=buildff
-docker build --rm=true -t ${dname} .
+#docker build --rm=true -t ${dname} .
+docker build --rm=true -t ${dname} -f Dockerfile.jammy .
 if [ "$(docker ps -q -f name=${dname})" ]; then
 echo Container ${dname} is running. Stops it.
   docker stop ${dname}
